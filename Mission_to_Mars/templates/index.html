@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mars Page</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="jumbotron text-center">
+            <h1>Mars Scraper</h1>
+           
+            <a href="/scrape">Scrape</a>
+        </div>
+        
+        <div>
+            <h1>{{ listing.title }}</h1>
+            <h2>{{ listing.teaser }}</h2>
+        </div>
+
+        <div>
+            <img src="{{ listing.featured_image_url }}">
+        </div>
+
+        <div>
+            {{ listing.table_string | safe}}
+        </div>
+      
+        <div>
+            {% for entry in listing.hemisphere_image_urls %}
+                <div>
+                    <p>
+                        {{entry.title}}
+                    </p>
+                    <img src="{{entry.img_url}}">
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+</body>
+</html>
